@@ -9,119 +9,121 @@ class Client {
     public $id;
     
     // client basic info (kundeninfo)
-    public $clientType;         // kunden art
-    public $clientID;           // kundennummer
-    public $startDate;          // datum wann die person kunde wurde
-    public $gender;             // anrede
-    public $title;              // titel
-    public $firstName;          // vorname
-    public $lastName;           // nachname
-    public $birthDate;          // geburtsdatum
+    public $client_id;                          // kundennummer
+    public $type;                               // kunden art
+    public $start_date;                         // datum wann die person kunde wurde
+    public $gender;                             // anrede
+    public $title;                              // titel
+    public $first_name;                         // vorname
+    public $last_name;                          // nachname
+    public $birth_date;                         // geburtsdatum
     
     // client contact info (kontaktdaten)
-    public $phone;              // telefonnummer
-    public $fax;                // faxnummer
-    public $mobile;             // handynummer
-    public $email;              // email adresse
-    public $contactMethod       // bevorzugte kontaktart
-    public $contactTiming       // bevorzugte kontaktzeit
+    public $phone;                              // telefonnummer
+    public $fax;                                // faxnummer
+    public $mobile;                             // handynummer
+    public $email;                              // email adresse
+    public $contact_method;                     // bevorzugte kontaktart
+    public $contact_timing;                     // bevorzugte kontaktzeit
     
     // client address info (adresse)
-    public $addressID;          // vertragskontonummer
-    public $street;             // straße
-    public $houseNumber;        // hausnummer
-    public $clientZip;         // postleitzahl
-    public $city;               // stadt
-    public $contractPartner;    // vertragspartner
-    public $addressType;        // primäre adresse
+    public $address_id;                         // vertragskontonummer
+    public $street;                             // straße
+    public $house_number;                       // hausnummer
+    public $postal_code;                        // postleitzahl
+    public $city;                               // stadt
+    public $contract_partner;                   // vertragspartner
+    public $address_type;                       // primäre adresse
     
     // client bank info (bankdaten)
-    public $accountOwner;       // kontoinhaber
-    public $iban;               // iban nummer
-    public $bic;                // bic nummer
+    public $account_owner;                      // kontoinhaber
+    public $iban;                               // iban nummer
+    public $bic;                                // bic nummer
     
     // client meter info (zählerinfo)
-    public $meterID;            // -
-    public $meterType;          // zählerart
-    public $meterNumber;        // zählernummer
-    public $radingDate;         // zähler lesedatum
-    public $meterReading;       // zählerstand
+    public $meter_id;                           // -
+    public $meter_type;                         // zählerart
+    public $meter_no;                           // zählernummer
+    public $reading_date;                       // zähler lesedatum
+    public $meter_reading;                      // zählerstand
     
     // client->provider contract (anbieter-vertragsdaten)
-    public $customerNumber;     // kundennummer
-    public $accountNumber;      // vertragskontonummer
-    public $contractNumber;     // vertragsnummer
-    public $contractStart;      // vertragsbeginn
-    public $contractPeriod;     // vertragslaufzeit
-    public $deadline;           // kündigungsfrist
-    public $guaranteePeriod;    // preisgarantie laufzeit
-    public $depositAmount;    // kautionssumme
-    public $bonusAmount;      // bonussumme
-    public $paymentMethod;      // zahlungsart
-    public $paymentNumber;      // anzahl abschläge
-    public $paymentAmount;      // abschlagssumme
-    public $baseUnitPrice;      // preis pro kwh (et/ht)
-    public $secUnitPrice;       // preis pro kwh (nt)
-    public $powerPrice;         // leistungspreis pro kw
-    public $basePrice;          // grundgebühr
+    public $customer_no;                        // kundennummer
+    public $contract_account_no;                // vertragskontonummer
+    public $contract_no;                        // vertragsnummer
+    public $contract_start_date;                // vertragsbeginn
+    public $contract_period;                    // vertragslaufzeit
+    public $contract_cancellation_deadline;     // kündigungsfrist
+    public $price_guarantee_period;             // preisgarantie laufzeit
+    public $deposit_amount;                     // kautionssumme
+    public $bonus_amount;                       // bonussumme
+    public $payment_method;                     // zahlungsart
+    public $partial_payment_no;                 // anzahl abschläge
+    public $amount_per_payment;                 // abschlagssumme
+    public $base_unit_price;                    // preis pro kwh (et/ht)
+    public $secondary_unit_price;               // preis pro kwh (nt)
+    public $high_power_kw_price;                // leistungspreis pro kw
+    public $monthly_base_price;                 // grundgebühr
     
     // client order (kontraktinfo)
-    public $contractType;       // kontrakt art
-    public $orderID;            // vertragsnummer
+    public $order_id;                           // vertragsnummer
+    public $contract_type;                      // kontrakt art
+    public $sending_method;                     // versandmethode von dokumenten
     
     // client private tariff wishes (tarifwunsch analyse für privatkunden)
-    public $energySource        // energieherkunft
-    public $energyDetails       // details zur energieherkunft
-    public $tariffType;         // tarifart
-    public $paymentType;        // zahlungsart
-    public $paymentPeriod;      // zahlungsweise
-    public $deposit;            // kaution
-    public $bonus;              // bonus
-    public $packageTariff;      // packet-tarife
-    public $priceGuarantee;     // preisgarantie
-    public $contractTime;       // vertragslaufzeit
-    public $usageCalcTariff;    // mehr-/minderverbrauchs-tarife
+    public $energy_source_type;                 // energieherkunft
+    public $energy_source_details;              // details zur energieherkunft
+    public $tariff_type;                        // tarifart
+    public $payment_type;                       // zahlungsart
+    public $payment_period;                     // zahlungsweise
+    public $deposit;                            // kaution
+    public $bonus;                              // bonus
+    public $package_tariff;                     // packet-tarife
+    public $price_guarantee;                    // preisgarantie
+    public $preferred_runtime;                  // vertragslaufzeit
+    public $usage_calc_tariff;                  // mehr-/minderverbrauchs-tarife
     
     // client adress analysis (bedarfs analyse)
-    public $peakUsage;          // primärer energiebedarf
-    public $usageDetails;       // details zum energiebedarf
-    public $energyUsage;        // details zur energiebenutzung
-    public $livingArea;         // wohn-/nutzfläche
-    public $floorNumber;        // anzahl etagen
-    public $newBuilding;        // neu- oder altbau
-    public $yearBuilt;          // baujahr
-    public $houseFlat;          // wohnung oder haus
-    public $buildingDetails;    // gebäude details (frei stehend, DPH usw.)
-    public $peopleNumber;       // personenanzahl im haushalt
-    public $energyOptimized;    // energetisch saniert
-    public $pastUsageChange;    // energiebedarf in der vergangenheit geändert
-    public $pastDetails;        // details dazu
-    public $futureUsageChange;  // energiebedarf in der zukunft verändert
-    public $futureDetails;      // details dazu
-    public $planToMove;         // aus-/umzug geplant
-    public $movingDate;         // umzugsdatum
+    public $peak_usage;                         // primärer energiebedarf
+    public $peak_usage_details;                 // details zum energiebedarf
+    public $energy_usage_details;               // details zur energiebenutzung
+    public $living_area;                        // wohn-/nutzfläche
+    public $no_of_floors;                       // anzahl etagen
+    public $new_building;                       // neu- oder altbau
+    public $year_built;                         // baujahr
+    public $house_or_flat;                      // wohnung oder haus
+    public $building_details;                   // gebäude details (frei stehend, DPH usw.)
+    public $no_of_people;                       // personenanzahl im haushalt
+    public $energy_saving_optimized;            // energetisch saniert
+    public $past_energy_usage_change;           // energiebedarf in der vergangenheit geändert
+    public $past_details;                       // details dazu
+    public $future_energy_usage_change;         // energiebedarf in der zukunft verändert
+    public $future_details;                     // details dazu
+    public $plan_to_move;                       // aus-/umzug geplant
+    public $moving_date;                        // umzugsdatum
     
     // client documents (dokumente des kunden)
-    public $documentID;         // -
-    public $fileName;           // dateiname
-    public $fileType;           // dateiformat
-    public $fileSize;           // dateigröße
-    public $fileContent;        // dateiinhalt
-    public $documentType;       // art des dokumentes
+    public $document_id;                        // -
+    public $file_name;                          // dateiname
+    public $file_type;                          // dateiformat
+    public $file_size;                          // dateigröße
+    public $file_content;                       // dateiinhalt
+    public $document_type;                      // art des dokumentes
     
     // provider info (anbieterdaten)
-    public $providerTypeID;     // -
-    public $typeName;           // art des anbieters
-    public $providerName;       // anbietername
-    public $providerStreet;     // anbieteradresse
-    public $providerZip;        // anbieter plz
-    public $providerCity;       // anbieter stadt
-    public $providerPhone;      // anbieter telefon
-    public $providerFax;        // anbieter fax
-    public $providerEmail;      // anbieter email
+    public $provider_type_id;                   // -
+    public $type_name;                          // art des anbieters
+    public $provider_id;                        // art des anbieters
+    public $provider_name;                      // anbietername
+    public $provider_street;                    // anbieteradresse
+    public $provider_postal_code;               // anbieter plz
+    public $provider_city;                      // anbieter stadt
+    public $provider_phone;                     // anbieter telefon
+    public $provider_fax;                       // anbieter fax
+    public $provider_email;                     // anbieter email
     
     // - (vertriebspartner)
-    public $vpID;               // vertriebspartner nummer
+    public $vpID;                               // vertriebspartner nummer
     
     
     
