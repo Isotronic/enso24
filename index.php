@@ -1,11 +1,3 @@
-<?php
-// Include database connection and functions here.
-/*require_once '../class/config.php';
-include '../class/functions.php';
-sec_session_start();
-if(login_check($mysqli) == true) {*/
-?>
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -23,10 +15,14 @@ if(login_check($mysqli) == true) {*/
 </head>
 <body>
 	<div id="wrapper">
-		<?php
-		include "includes/header.php";
-		include "includes/nav.php";
-		?>
+	    <div id="header">
+            <h2>B&amp;S Solutions CRM</h2>
+            <!--<img src="includes/images/logo_final.png" alt="enso24 logo" width="400" height="100"/>-->
+        </div>
+        <div id="nav">
+            <a href="index.php?pid=default">Überblick</a>
+            <a href="index.php?pid=customer">Bestandskunden</a>
+        </div>
 		<div id="content">
 		<?php
 		// display the page that the user clicks on
@@ -39,12 +35,9 @@ if(login_check($mysqli) == true) {*/
 	    }
 		?>
 		</div>
-		<?php include "includes/footer.php"; ?>
+        <div id="footer">
+            <p><!--<a href="../class/logout.php">Logout</a> &nbsp; -->&copy;2013 <a href='http://www.bss-ims.de'>B&amp;S Solutions - IT&amp;Media Services</a></p>
+        </div>
 	</div>
 </body>
 </html>
-<?php
-/*} else {
-   header("http://crm.enso24.de");
-}*/
-?>

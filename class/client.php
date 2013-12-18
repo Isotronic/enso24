@@ -150,7 +150,7 @@ class Client {
     
     
     // create a new customer
-	function saveNewClient($step, $client_id) 
+	function newClient($step, $client_id) 
 	{
         $this->client_id = $client_id;
         $mysqli = new mysqli("rdbms.strato.de", "U1519108", "lalilu1969", "DB1519108");
@@ -177,12 +177,20 @@ class Client {
 		
 		// saving the address and meter details	
 		} elseif ($step == "address_meter") {
+		    // address table
 			if($stmt = $mysqli->prepare("INSERT INTO client_address (address_id, client_id, street, house_no, postal_code, city, contract_partner, address_type) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")) {
 				$stmt->bind_param('ississss', $this->address_id, $this->client_id, $this->street, $this->house_no, $this->postal_code, $this->city, $this->contract_partner, $this->address_type);
 				$stmt->execute();
                 $stmt->close();
+                // meter table
                 if($stmt = $mysqli->prepare("INSERT INTO client_meter (meter_type, meter_no, address_id) VALUES (?, ?, ?)")) {
                     $stmt->bind_param('isi', $this->meter_type, $this->meter_no, $this->address_id);
+                    $stmt->execute();
+                    $stmt->close();
+                } else {echo "Prepared Statement Error: %s\n", $mysqli->error;}
+                // address analysis table
+                if($stmt = $mysqli->prepare("INSERT INTO client_address_analysis (address_id) VALUES (?)")) {
+                    $stmt->bind_param('i', $this->address_id);
                     $stmt->execute();
                     $stmt->close();
                 } else {echo "Prepared Statement Error: %s\n", $mysqli->error;}

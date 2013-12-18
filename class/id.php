@@ -2,8 +2,8 @@
 
 class Id extends Client {
     
-    private $check;
-    private $random;
+    private $check;             // -
+    private $random;            // -
     
     // create IDs
     function generateId($step)
