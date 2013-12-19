@@ -5,11 +5,7 @@ class Employee {
     
     // load variables
     
-<<<<<<< HEAD
     // employee info
-=======
-    // employee info (angestellte und vertriebspartner)
->>>>>>> b605690bda8f29d652a8a7a785f98b26440e670a
     public $employee_id;                    // -
     public $organisation_id;                // orga nummer
     public $vp_id;                          // vertriebspartner nummer
@@ -23,7 +19,7 @@ class Employee {
     public $email;                          // email
     public $birthdate;                      // geburtsdatum
     
-<<<<<<< HEAD
+
     // employee login info
     public $username;
     public $email;
@@ -32,20 +28,7 @@ class Employee {
 
     // employee login attempts
     public $log_time;
-=======
 
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> b605690bda8f29d652a8a7a785f98b26440e670a
 
 
 

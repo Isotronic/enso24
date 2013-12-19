@@ -22,12 +22,9 @@ if (isset($_POST['search_id']) || isset($_GET['id'])) {
     } else {
         $search_id = $_GET['id'];
     }
-    
-<<<<<<< HEAD
+
     //include "includes/customer-nav.php";
-=======
-    include "includes/customer-nav.php";
->>>>>>> b605690bda8f29d652a8a7a785f98b26440e670a
+
     $client = new client();
 	if(!isset($_GET['action'])) {
         if ($_GET['b']=="1") {
