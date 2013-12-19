@@ -1,16 +1,28 @@
 <?php
+<<<<<<< HEAD
 // class to handle everything to do with IDs
+=======
+
+>>>>>>> b605690bda8f29d652a8a7a785f98b26440e670a
 class Id extends Client {
     
     private $check;             // -
     private $random;            // -
     
+<<<<<<< HEAD
     // generate the IDs
+=======
+    // create IDs
+>>>>>>> b605690bda8f29d652a8a7a785f98b26440e670a
     function generateId($step)
     {
         $mysqli = new mysqli("rdbms.strato.de", "U1519108", "lalilu1969", "DB1519108");
         
+<<<<<<< HEAD
         // generate address_id
+=======
+        // vertragskontonummer generieren
+>>>>>>> b605690bda8f29d652a8a7a785f98b26440e670a
         if ($step == "address") {
             do {
                 if($stmt = $mysqli->prepare("")) {
@@ -26,7 +38,11 @@ class Id extends Client {
             } while ($this->check > 0);
             $this->address_id=$this->random;
         
+<<<<<<< HEAD
         // generate order_id    
+=======
+        // vertragsnummer generieren    
+>>>>>>> b605690bda8f29d652a8a7a785f98b26440e670a
         } elseif ($step == "order") {
             do {
                 if($stmt = $mysqli->prepare("")) {
@@ -42,7 +58,11 @@ class Id extends Client {
             } while ($this->check > 0);
             $this->order_id=$this->random;
         
+<<<<<<< HEAD
         // generate client_id    
+=======
+        // kundennummer generieren    
+>>>>>>> b605690bda8f29d652a8a7a785f98b26440e670a
         } elseif ($step == "client") {
             do {
                 if($stmt = $mysqli->prepare("")) {

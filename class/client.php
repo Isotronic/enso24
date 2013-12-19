@@ -121,6 +121,13 @@ class Client {
     
     // - (vertriebspartner)
     public $vp_id;                               // vertriebspartner nummer
+<<<<<<< HEAD
+=======
+    
+    
+    
+    // standardnetzbetreiber??
+>>>>>>> b605690bda8f29d652a8a7a785f98b26440e670a
     // gas umrechnungsfaktor und brennwert??
     // firmendaten??
 
