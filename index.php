@@ -36,7 +36,7 @@
 		?>
 		</div>
         <div id="footer">
-            <p>Tshewanag RInzin<!--<a href="../class/logout.php">Logout</a> &nbsp; -->&copy;2013 <a href='http://www.bss-ims.de'>B&amp;S Solutions - IT&amp;Media Services</a></p>
+            <p><!--<a href="../class/logout.php">Logout</a> &nbsp; -->&copy;2013 <a href='http://www.bss-ims.de'>B&amp;S Solutions - IT&amp;Media Services</a></p>
         </div>
 	</div>
 </body>
