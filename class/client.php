@@ -129,7 +129,8 @@ class Client {
     function getClientData($step, $client_id)
     {
         $this->client_id = $client_id;
-        $mysqli = new mysqli("rdbms.strato.de", "U1519108", "lalilu1969", "DB1519108");
+        //$mysqli = new mysqli("rdbms.strato.de", "U1519108", "lalilu1969", "DB1519108");
+        $mysqli = new mysqli("localhost", "root", "", "db1519108");
         // kundendaten laden
         if ($step == "basic") {
             if($stmt = $mysqli->prepare("SELECT * FROM client_basic_info WHERE client_id=?")) {
@@ -146,11 +147,10 @@ class Client {
     
     
     // create a new customer
-	function newClient($step, $client_id) 
+	function newClient($step) 
 	{
-        $this->client_id = $client_id;
-        $mysqli = new mysqli("rdbms.strato.de", "U1519108", "lalilu1969", "DB1519108");
-        
+        //$mysqli = new mysqli("rdbms.strato.de", "U1519108", "lalilu1969", "DB1519108");
+        $mysqli = new mysqli("localhost", "root", "", "db1519108");
         // saving basic customer details
 		if($step == "basic") {
 			if($stmt = $mysqli->prepare("INSERT INTO client_basic_info (client_id, type, gender, title, first_name, last_name, birth_date) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
@@ -172,18 +172,12 @@ class Client {
 			}
 		
 		// saving the address and meter details	
-		} elseif ($step == "address_meter") {
+		} elseif ($step == "address") {
 		    // address table
 			if($stmt = $mysqli->prepare("INSERT INTO client_address (address_id, client_id, street, house_no, postal_code, city, contract_partner, address_type) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")) {
 				$stmt->bind_param('ississss', $this->address_id, $this->client_id, $this->street, $this->house_no, $this->postal_code, $this->city, $this->contract_partner, $this->address_type);
 				$stmt->execute();
                 $stmt->close();
-                // meter table
-                if($stmt = $mysqli->prepare("INSERT INTO client_meter (meter_type, meter_no, address_id) VALUES (?, ?, ?)")) {
-                    $stmt->bind_param('isi', $this->meter_type, $this->meter_no, $this->address_id);
-                    $stmt->execute();
-                    $stmt->close();
-                } else {echo "Prepared Statement Error: %s\n", $mysqli->error;}
                 // address analysis table
                 if($stmt = $mysqli->prepare("INSERT INTO client_address_analysis (address_id) VALUES (?)")) {
                     $stmt->bind_param('i', $this->address_id);
@@ -195,7 +189,16 @@ class Client {
 			}
 		
 		// saving the bank details	
-		} elseif($step == "bank") {
+		} elseif ($step == "meter") {
+            // meter table
+            if($stmt = $mysqli->prepare("INSERT INTO client_meter (meter_type, meter_no, address_id) VALUES (?, ?, ?)")) {
+                $stmt->bind_param('isi', $this->meter_type, $this->meter_no, $this->address_id);
+                $stmt->execute();
+                $stmt->close();
+            } else {echo "Prepared Statement Error: %s\n", $mysqli->error;}
+            
+        // saving the bank details  
+        } elseif($step == "bank") {
             if($stmt = $mysqli->prepare("INSERT INTO client_bank (client_id, account_owner, iban, bic) VALUES (?, ?, ?, ?)")) {
                 $stmt->bind_param('ssss', $this->client_id, $this->account_owner, $this->iban, $this->bic);
                 $stmt->execute();
@@ -206,8 +209,8 @@ class Client {
         
         // saving the order details 
         } elseif($step == "order") {
-            if($stmt = $mysqli->prepare("INSERT INTO client_order (contract_type, client_id, sending_method) VALUES (?, ?, ?)")) {
-                $stmt->bind_param('ssi', $this->contract_type, $this->client_id, $this->sending_method);
+            if($stmt = $mysqli->prepare("INSERT INTO client_order (order_id, contract_type, client_id, sending_method) VALUES (?, ?, ?, ?)")) {
+                $stmt->bind_param('issi', $this->order_id, $this->contract_type, $this->client_id, $this->sending_method);
                 $stmt->execute();
                 $stmt->close();
             } else {

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.5
+-- version 4.0.4.1
 -- http://www.phpmyadmin.net
 --
--- Host: rdbms
--- Generation Time: Dec 20, 2013 at 06:39 PM
--- Server version: 5.5.31-log
--- PHP Version: 5.2.17
+-- Host: 127.0.0.1
+-- Generation Time: Dec 23, 2013 at 08:10 PM
+-- Server version: 5.5.32
+-- PHP Version: 5.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,8 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `DB1519108`
+-- Database: `db1519108`
 --
+CREATE DATABASE IF NOT EXISTS `db1519108` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `db1519108`;
 
 -- --------------------------------------------------------
 
@@ -27,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `client_address` (
-  `address_id` int(11) NOT NULL,
+  `address_id` int(8) NOT NULL,
   `client_id` varchar(15) NOT NULL,
   `street` varchar(45) NOT NULL,
   `house_no` int(11) NOT NULL,
@@ -231,13 +233,13 @@ CREATE TABLE IF NOT EXISTS `client_meter_usage` (
 --
 
 CREATE TABLE IF NOT EXISTS `client_order` (
-  `order_id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` int(10) NOT NULL,
   `contract_type` varchar(45) NOT NULL,
   `client_id` varchar(15) NOT NULL,
   `sending_method` tinyint(1) NOT NULL,
   PRIMARY KEY (`order_id`),
   KEY `fk_client_order_client_basic_info1_idx` (`client_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 

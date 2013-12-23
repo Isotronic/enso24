@@ -9,8 +9,8 @@ class Id extends Client {
     // generate the IDs
     function generateId($step)
     {
-        $mysqli = new mysqli("rdbms.strato.de", "U1519108", "lalilu1969", "DB1519108");
-        
+        //$mysqli = new mysqli("rdbms.strato.de", "U1519108", "lalilu1969", "DB1519108");
+        $mysqli = new mysqli("localhost", "root", "", "db1519108");
         // generate address_id
         if ($step == "address") {
             do {
