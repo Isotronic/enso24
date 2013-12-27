@@ -23,18 +23,12 @@
             <a href="index.php?pid=default">Überblick</a>
             <a href="index.php?pid=customer">Bestandskunden</a>
         </div>
-		<div id="content">
-		<?php
-		// display the page that the user clicks on
-	    if ($_GET["pid"]=="customer") {
-	        include "pages/customer.php";
-		} elseif ($_GET["pid"]=="new-customer") {
-	        include "pages/new-customer.php";
-	    } else {
-	        include "pages/default.php";
-	    }
-		?>
-		</div>
+        <div>
+        	<?php
+        		//this pulls the add new client button
+        		include("pages/new_client/index.php");
+        	?>
+        </div>
         <div id="footer">
             <p><!--<a href="../class/logout.php">Logout</a> &nbsp; -->&copy;2013 <a href='http://www.bss-ims.de'>B&amp;S Solutions - IT&amp;Media Services</a></p>
         </div>
