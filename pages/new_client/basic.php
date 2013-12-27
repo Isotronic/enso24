@@ -11,4 +11,5 @@ Basic Information
 		<input type="text" name="last_name" id="last_name" /><br />
 	<label for="birth_date">Date of Birth </label>
 		<input type="date" name="birth_date" id="birth_date" /><br />
+		<input type="hidden" name="step" id="step" value="basic" />
 </form>
