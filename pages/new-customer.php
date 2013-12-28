@@ -1,7 +1,7 @@
 <?php 
 // adding a new customer
-require_once 'class/client.php';
-require_once 'class/id.php';
+require_once '../class/client.php';
+require_once '../class/id.php';
 
 $client = new client();
 $id = new Id();
@@ -11,6 +11,7 @@ $step = $_POST["step"];
 if ($step == "basic") {
     $client->type = $_POST["type"];
     $client->gender = $_POST["gender"];
+    $client->vp_id = $_POST["vp_id"];
     $client->title = $_POST["title"];
     $client->first_name = $_POST["first_name"];
     $client->last_name = $_POST["last_name"];
