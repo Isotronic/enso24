@@ -1,5 +1,5 @@
 <script type="text/javascript">
-
+	var form_identifier;
 	function validateForm(form_identifier) 
 	{
 		if(form_identifier=="basic")
@@ -37,26 +37,36 @@
 			}
 			return true;
 		}
-		else if(form_identifier=="contact")
+		if(form_identifier=="contact")
 		{
-			var client_id = $("#client_id").val();
     		var phone = $("#phone").val();
     		var fax = $("#fax").val();
     		var mobile = $("#mobile").val();
     		var email = $("#email").val();
             var contact_method = $("#contact_method").val();
     		var contact_timing = $("#contact_timing").val();
+    		if(phone=="")
+    		{
+    			alert("Enter phone number");
+    			return false;
+    		}
+    		return true;
 			
 		}
-		else if(form_identifier=="address")
+		if(form_identifier=="address")
 		{
-			var client_id = $("#client_id").val();
 		    var street = $("#street").val();
 		    var house_no = $("#house_no").val();
 		    var postal_code = $("#postal_code").val();
 		   	var city = $("#city").val();
 		    var contract_partner = $("#contract_partner").val();
 		    var address_type = $("#address_type").val();
+		    if(street=="")
+		    {
+		    	alert("Enter Street");
+		    	return false;
+		    }
+		    return true;
 		}
 		return true;
 	}
@@ -65,23 +75,22 @@
 	function getFormData(form_identifier) //this function collects the information from the form to be sent to the php file
 	{
 		var data="";
-		
 		if(form_identifier=="basic")
 		{
-			
+			data="";
 			var type=$("#type").val();
 			var title=$("#title").val();
 			var first_name=$("#first_name").val();
 			var last_name=$("#last_name").val();
 			var birth_date=$("#birth_date").val();
 			var step="basic";
-			
+			alert(step);
 			data="type="+type+"&title="+title+"&first_name="+first_name+"$last_name="+last_name+"&birth_date="+birth_date+"&step="+step;
-			alert(data);
-
+			return data;
 		}
-		else if(form_identifier=="contact")
+		if(form_identifier=="contact")
 		{
+			data="";
 			var client_id = $("#client_id").val();
     		var phone = $("#phone").val();
     		var fax = $("#fax").val();
@@ -89,9 +98,14 @@
     		var email = $("#email").val();
             var contact_method = $("#contact_method").val();
     		var contact_timing = $("#contact_timing").val();
+    		var step="contact";
+    		alert(step);
+    		data="phone="+phone+"&fax="+fax+"&mobile="+mobile+"&email="+email+"&contact_method="+contact_method+"&contact_timing="+contact_timing+"&step="+step;
+    		return data;
 		}
-		else if(form_identifier=="address")
+		if(form_identifier=="address")
 		{
+			data="";
 			var client_id = $("#client_id").val();
 		    var street = $("#street").val();
 		    var house_no = $("#house_no").val();
@@ -99,6 +113,10 @@
 		   	var city = $("#city").val();
 		    var contract_partner = $("#contract_partner").val();
 		    var address_type = $("#address_type").val();
+		    var step="address";
+		    alert(step);
+		    data="street="+street+"&house_no="+house_no+"&postal_code="+postal_code+"&city="+city+"&contract_partner="+contract_partner+"&address_type="+address_type+"&step="+step;
+		    return data;
 		}
 		
 	}
@@ -138,7 +156,7 @@
 						{
 							case "basic_added":
 								/*$("#myModal").modal('hide');*/
-								form_identifier="contact";
+								
 								//dim the modal while the form data is being processed
 								$(".modal-body").css({
 									"opacity":"1",
@@ -150,6 +168,7 @@
 								$("div#basic").css({"display":"none"});
 								$("div#contact").css({"display":"block"});
 								$("div#loading").css({"display":"none"});
+								form_identifier="contact";
 								break;
 							case "contact_added":
 								form_identifier="address";
@@ -160,10 +179,11 @@
 								});
 								$("div#basic").css({"display":"none"});
 								$("div#contact").css({"display":"none"});
-								$("div#loading").css({"display":"block"});
+								$("div#address").css({"display":"block"})
+								$("div#loading").css({"display":"none"});
 								break;
 							case "address_added":
-								$("#myModal").hide();
+								$("#myModal").('hide');
 								/*
 								$(".modal-body").css({
 									"opacity":"1",
@@ -214,7 +234,8 @@
 			  keyboard: false  
 		});
 		
-		var form_identifier="basic";
+		form_identifier="basic";
+		
 		$("div#basic").css({"display":"block"});
 		$("div#loading").css({"display":"none"})
 		$("div#contact").css({"display":"none"});
@@ -253,6 +274,7 @@
 			        	include("basic.php");
 						include("contact.php");
 						include("address.php");
+						
 			        ?>
 			        
 			        </div>

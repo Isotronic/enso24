@@ -1,10 +1,20 @@
 <?php
 $i=0;
 
-while($i<10000000)
+while($i<1000000)
 {
 	$i++;
 }
-echo "basic_added";
-
+if($_POST['step']=="basic")
+{
+	echo "basic_added";
+}
+else if($_POST['step']=="contact")
+{
+	echo "contact_added";
+}
+else
+	{
+		echo "address_added";
+	}
 ?>
