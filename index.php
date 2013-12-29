@@ -32,6 +32,7 @@
             include("pages/new_client/default.php");
         ?>
     </div>
+   </div>
     <!-- Site footer -->
     <div class="footer">
         <p>&copy; 2013 <a href='http://www.bss-ims.de'>B&amp;S Solutions - IT&amp;Media Services</a></p>
