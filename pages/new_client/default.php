@@ -10,7 +10,7 @@
 			var first_name=$("#first_name").val();
 			var last_name=$("#last_name").val();
 			var birth_date=$("#birth_date").val();
-			if(type=="")
+			/*if(type=="")
 			{
 				alert("Enter Client Type")
 				return false;
@@ -34,7 +34,7 @@
 			{
 				alert("Enter Date of Birth");
 				return false;
-			}
+			}*/
 			return true;
 		}
 		if(form_identifier=="contact")
@@ -45,11 +45,11 @@
     		var email = $("#email").val();
             var contact_method = $("#contact_method").val();
     		var contact_timing = $("#contact_timing").val();
-    		if(phone=="")
+    		/*if(phone=="")
     		{
     			alert("Enter phone number");
     			return false;
-    		}
+    		}*/
     		return true;
 			
 		}
@@ -61,11 +61,11 @@
 		   	var city = $("#city").val();
 		    var contract_partner = $("#contract_partner").val();
 		    var address_type = $("#address_type").val();
-		    if(street=="")
+		   	/* if(street=="")
 		    {
 		    	alert("Enter Street");
 		    	return false;
-		    }
+		    }*/
 		    return true;
 		}
 		return true;
@@ -84,7 +84,6 @@
 			var last_name=$("#last_name").val();
 			var birth_date=$("#birth_date").val();
 			var step="basic";
-			alert(step);
 			data="type="+type+"&title="+title+"&first_name="+first_name+"$last_name="+last_name+"&birth_date="+birth_date+"&step="+step;
 			return data;
 		}
@@ -99,7 +98,6 @@
             var contact_method = $("#contact_method").val();
     		var contact_timing = $("#contact_timing").val();
     		var step="contact";
-    		alert(step);
     		data="phone="+phone+"&fax="+fax+"&mobile="+mobile+"&email="+email+"&contact_method="+contact_method+"&contact_timing="+contact_timing+"&step="+step;
     		return data;
 		}
@@ -114,7 +112,6 @@
 		    var contract_partner = $("#contract_partner").val();
 		    var address_type = $("#address_type").val();
 		    var step="address";
-		    alert(step);
 		    data="street="+street+"&house_no="+house_no+"&postal_code="+postal_code+"&city="+city+"&contract_partner="+contract_partner+"&address_type="+address_type+"&step="+step;
 		    return data;
 		}
@@ -183,7 +180,7 @@
 								$("div#loading").css({"display":"none"});
 								break;
 							case "address_added":
-								$("#myModal").('hide');
+								$("#myModal").modal('hide');
 								/*
 								$(".modal-body").css({
 									"opacity":"1",

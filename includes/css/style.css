@@ -182,6 +182,16 @@ z-index: 9002;
 	height:100px;
 	width: 100px;
 }
+.addr input
+{
+	height:25px;
+	padding-bottom:0px;
+}
+.addr label
+{
+	height:25px;
+	padding-top:0px;
+}
 =======
 =======
 >>>>>>> 0c6b0da24e674c86b4fbc54875c26fee6ae58a4b
@@ -300,3 +310,5 @@ z-index: 9002;
       }
 >>>>>>> 0c6b0da24e674c86b4fbc54875c26fee6ae58a4b
 >>>>>>> f8ede73ed0c7030cca3a5904ceff9625e43eb021
+
+
