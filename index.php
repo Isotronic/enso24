@@ -26,7 +26,7 @@
         <div>
         	<?php
         		//this pulls the add new client button
-        		include("pages/new_client/index.php");
+        		include("pages/new_client/default.php");
         	?>
         </div>
         <div id="footer">
