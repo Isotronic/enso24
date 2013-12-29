@@ -14,6 +14,7 @@
 <title>crm-enso24</title>
 </head>
 <body>
+<<<<<<< HEAD
 	<div id="wrapper">
 	    <div id="header">
             <h2>B&amp;S Solutions CRM</h2>
@@ -33,5 +34,30 @@
             <p><!--<a href="../class/logout.php">Logout</a> &nbsp; -->&copy;2013 <a href='http://www.bss-ims.de'>B&amp;S Solutions - IT&amp;Media Services</a></p>
         </div>
 	</div>
+=======
+<div class="container">
+    <div class="masthead">
+        <h3 class="text-muted"></h3>
+        <ul class="nav nav-justified">
+            <li class="active"><a href="#">Dashboard</a></li>
+            <li><a href="#">Customers</a></li>
+            <li><a href="#">Email</a></li>
+            <li><a href="#">Taskmanager</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Admin</a></li>
+        </ul>
+    </div>
+    <!-- Site content -->
+    <div class="jumbotron">
+        <?php
+            include("pages/new_client/default.php");
+        ?>
+    </div>
+    <!-- Site footer -->
+    <div class="footer">
+        <p>&copy; 2013 <a href='http://www.bss-ims.de'>B&amp;S Solutions - IT&amp;Media Services</a></p>
+    </div>
+</div>
+>>>>>>> 0c6b0da24e674c86b4fbc54875c26fee6ae58a4b
 </body>
 </html>
