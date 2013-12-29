@@ -1,6 +1,5 @@
 <div id="basic">
 Basic Information
-<<<<<<< HEAD
 	<form method="post" name="basic" id="basic" action="" class="">
 		<label for="type">Client Type </label> 
 			<input type="text" name="type" id="type" /><br />
@@ -14,7 +13,6 @@ Basic Information
 			<input type="date" name="birth_date" id="birth_date" /><br />
 	</form>
 </div>
-=======
 <form method="post" name="basic" id="basic" action="" class="">
 	<label for="type">Client Type </label> 
 		<input type="text" name="type" id="type" /><br />
@@ -28,4 +26,3 @@ Basic Information
 		<input type="date" name="birth_date" id="birth_date" /><br />
 		<input type="hidden" name="step" id="step" value="basic" />
 </form>
->>>>>>> 0c6b0da24e674c86b4fbc54875c26fee6ae58a4b

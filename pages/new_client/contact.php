@@ -1,7 +1,5 @@
 <div id="contact">
-
-	Contact Information
-	
+Contact Information
 	<form method="post" name="contact" id="contact" action="" class="">
 		<label for="phone">Phone </label> 
 			<input type="text" name="phone" id="phone" /><br />
