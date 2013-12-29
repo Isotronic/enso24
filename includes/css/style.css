@@ -1,6 +1,7 @@
 /* Make something awesome! */
 body {
 <<<<<<< HEAD
+<<<<<<< HEAD
 background-color:#f1f1f1;
 font-family:Verdana, Geneva, Arial, Helvetica, sans-serif;
 color:#333;
@@ -176,6 +177,8 @@ z-index: 9002;
 	width: 100px;
 }
 =======
+=======
+>>>>>>> 0c6b0da24e674c86b4fbc54875c26fee6ae58a4b
         padding-top: 20px;
       }
       .footer {
@@ -262,5 +265,9 @@ z-index: 9002;
           padding-left: 0;
           padding-right: 0;
         }
+<<<<<<< HEAD
+      }
+>>>>>>> 0c6b0da24e674c86b4fbc54875c26fee6ae58a4b
+=======
       }
 >>>>>>> 0c6b0da24e674c86b4fbc54875c26fee6ae58a4b
