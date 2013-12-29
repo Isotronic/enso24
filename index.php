@@ -16,7 +16,6 @@
 <body>
 <div class="container">
     <div class="masthead">
-<<<<<<< HEAD
         <h3 class="text-muted"></h3>
         <h3 class="text-muted">B&amp;S Solutions CRM</h3>
         <ul class="nav nav-justified">
@@ -34,7 +33,6 @@
             include("pages/new_client/default.php");
         ?>
     </div>
-<<<<<<< HEAD
    </div>
     <!-- Site footer -->
     <div class="footer">

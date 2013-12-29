@@ -242,7 +242,7 @@
 		form_identifier="basic";
 		
 		$("div#basic").css({"display":"block"});
-		$("div#loading").css({"display":"none"})
+		$("div#loading").css({"display":"none"});
 		$("div#contact").css({"display":"none"});
 		$("div#address").css({"display":"none"});
 		
@@ -298,7 +298,7 @@
 							show: false,
 						  backdrop: 'static',
 						  keyboard: false  
-						})
+					});
 				});
 	        	
     		</script> 
