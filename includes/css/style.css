@@ -192,6 +192,13 @@ z-index: 9002;
 	height:25px;
 	padding-top:0px;
 }
+.jumbotron
+{
+	font-size:15px;
+}
+.autoModal.modal .modal-body{
+    max-height: 100%;
+}
 =======
 =======
 >>>>>>> 0c6b0da24e674c86b4fbc54875c26fee6ae58a4b
@@ -214,6 +221,7 @@ z-index: 9002;
       .jumbotron {
         text-align: center;
         background-color: transparent;
+        font-size:15px;
       }
       .jumbotron .btn {
         font-size: 21px;

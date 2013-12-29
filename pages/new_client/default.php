@@ -153,7 +153,7 @@
 						{
 							case "basic_added":
 								/*$("#myModal").modal('hide');*/
-								
+								$(".modal-dialog").css({"width":"600px;"});
 								//dim the modal while the form data is being processed
 								$(".modal-body").css({
 									"opacity":"1",
@@ -169,6 +169,7 @@
 								break;
 							case "contact_added":
 								form_identifier="address";
+								$(".modal-content").css({"width":"800px","margin-right":"auto","margin-left":"auto"})
 								$(".modal-body").css({
 									"opacity":"1",
 									"background-color":"#fff",
@@ -231,6 +232,7 @@
 			  keyboard: false  
 		});
 		
+		
 		form_identifier="basic";
 		
 		$("div#basic").css({"display":"block"});
@@ -242,7 +244,6 @@
 			
 			//this part of script gets the data in form
 			//var temp=$("#step").val();
-				
 			var bool=validateForm(form_identifier);	
 			if(bool==true)
 			{
