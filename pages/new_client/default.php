@@ -1,4 +1,5 @@
 <script type="text/javascript">
+<<<<<<< HEAD
 	var form_identifier;
 	function validateForm(form_identifier) 
 	{
@@ -122,6 +123,23 @@
 	function sendData(str)
 	{
 		//ajax part where the form data will be sent to php file for processing	
+=======
+	$(document).ready(function()
+	{
+		$('#myModal').modal({
+				show: false,
+			  backdrop: 'static',
+			  keyboard: false  
+		});
+		
+		$("div#basic").css({"display":"block"});
+		$("div#loading").css({"display":"none"})
+		$("div#contact").css({"display":"none"});
+		$("div#address").css({"display":"none"});
+		
+		$("#submit").click(function(){
+				
+>>>>>>> 66ad85cdf2e70465cd557c4afb452b85732d82da
 			var xmlhttp;
 			if(window.XMLHttpRequest)
 			{//code for ie7+, firefox, chrome, opera, safari
@@ -148,6 +166,7 @@
 				{
 						document.getElementById("123").innerHTML=xmlhttp.responseText;
 						var stat=xmlhttp.responseText;
+<<<<<<< HEAD
 						
 						switch(stat)
 						{
@@ -197,6 +216,8 @@
 							
 						}
 					/*
+=======
+>>>>>>> 66ad85cdf2e70465cd557c4afb452b85732d82da
 						if(stat=="basic_added")
 						{
 							$(".modal-body").css({
@@ -204,12 +225,16 @@
 								"background-color":"#fff",
 								"color":"#000"
 							});
+<<<<<<< HEAD
 							
+=======
+>>>>>>> 66ad85cdf2e70465cd557c4afb452b85732d82da
 							$("div#basic").css({"display":"none"});
 							$("div#contact").css({"display":"block"});
 							$("div#loading").css({"display":"none"})
 							//$("div#address").css({"display":"none"})
 						}
+<<<<<<< HEAD
 						else if(stat=="contact_added")
 						{
 							
@@ -251,6 +276,13 @@
 				sendData(str);
 			}
 			return false;	
+=======
+						xmlhttp.responseText="";
+				}
+			}
+			xmlhttp.open("GET","pages/new_client/form_handler.php",true);
+			xmlhttp.send();
+>>>>>>> 66ad85cdf2e70465cd557c4afb452b85732d82da
 		});
 	});
 </script> 
@@ -272,7 +304,10 @@
 			        	include("basic.php");
 						include("contact.php");
 						include("address.php");
+<<<<<<< HEAD
 						
+=======
+>>>>>>> 66ad85cdf2e70465cd557c4afb452b85732d82da
 			        ?>
 			        
 			        </div>
