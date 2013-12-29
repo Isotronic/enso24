@@ -1,5 +1,4 @@
 <script type="text/javascript">
-<<<<<<< HEAD
 	var form_identifier;
 	function validateForm(form_identifier) 
 	{
@@ -123,23 +122,7 @@
 	function sendData(str)
 	{
 		//ajax part where the form data will be sent to php file for processing	
-=======
-	$(document).ready(function()
-	{
-		$('#myModal').modal({
-				show: false,
-			  backdrop: 'static',
-			  keyboard: false  
-		});
-		
-		$("div#basic").css({"display":"block"});
-		$("div#loading").css({"display":"none"})
-		$("div#contact").css({"display":"none"});
-		$("div#address").css({"display":"none"});
-		
-		$("#submit").click(function(){
 				
->>>>>>> 66ad85cdf2e70465cd557c4afb452b85732d82da
 			var xmlhttp;
 			if(window.XMLHttpRequest)
 			{//code for ie7+, firefox, chrome, opera, safari
@@ -166,8 +149,6 @@
 				{
 						document.getElementById("123").innerHTML=xmlhttp.responseText;
 						var stat=xmlhttp.responseText;
-<<<<<<< HEAD
-						
 						switch(stat)
 						{
 							case "basic_added":
@@ -212,9 +193,9 @@
 								$("div#loading").css({"display":"none"});
 								*/
 								break;
-								
+							}
 							
-						}
+						
 					/*
 =======
 >>>>>>> 66ad85cdf2e70465cd557c4afb452b85732d82da
@@ -275,14 +256,6 @@
 				var str=getFormData(form_identifier);
 				sendData(str);
 			}
-			return false;	
-=======
-						xmlhttp.responseText="";
-				}
-			}
-			xmlhttp.open("GET","pages/new_client/form_handler.php",true);
-			xmlhttp.send();
->>>>>>> 66ad85cdf2e70465cd557c4afb452b85732d82da
 		});
 	});
 </script> 
@@ -304,10 +277,6 @@
 			        	include("basic.php");
 						include("contact.php");
 						include("address.php");
-<<<<<<< HEAD
-						
-=======
->>>>>>> 66ad85cdf2e70465cd557c4afb452b85732d82da
 			        ?>
 			        
 			        </div>

@@ -18,9 +18,7 @@
     <div class="masthead">
 <<<<<<< HEAD
         <h3 class="text-muted"></h3>
-=======
         <h3 class="text-muted">B&amp;S Solutions CRM</h3>
->>>>>>> 66ad85cdf2e70465cd557c4afb452b85732d82da
         <ul class="nav nav-justified">
             <li class="active"><a href="#">Dashboard</a></li>
             <li><a href="#">Customers</a></li>
@@ -38,8 +36,6 @@
     </div>
 <<<<<<< HEAD
    </div>
-=======
->>>>>>> 66ad85cdf2e70465cd557c4afb452b85732d82da
     <!-- Site footer -->
     <div class="footer">
         <p>&copy; 2013 <a href='http://www.bss-ims.de'>B&amp;S Solutions - IT&amp;Media Services</a></p>

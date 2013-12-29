@@ -1,11 +1,5 @@
 <div id="contact">
-<<<<<<< HEAD
-
-	Contact Information
-	
-=======
 Contact Information
->>>>>>> 66ad85cdf2e70465cd557c4afb452b85732d82da
 	<form method="post" name="contact" id="contact" action="" class="">
 		<label for="phone">Phone </label> 
 			<input type="text" name="phone" id="phone" /><br />
@@ -25,9 +19,6 @@ Contact Information
 			<br />
 		<label for="contact_timing">Contact Timing </label> 
 			<input type="text" name="contact_timing" id="contact_timing" /><br />
-<<<<<<< HEAD
 			<input type="hidden" name="step" id="step" value="contact" />
-=======
->>>>>>> 66ad85cdf2e70465cd557c4afb452b85732d82da
 	</form>
 </div>
