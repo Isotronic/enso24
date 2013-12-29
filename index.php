@@ -16,6 +16,7 @@
 <body>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<div id="wrapper">
 	    <div id="header">
             <h2>B&amp;S Solutions CRM</h2>
@@ -36,6 +37,8 @@
         </div>
 	</div>
 =======
+=======
+>>>>>>> 0c6b0da24e674c86b4fbc54875c26fee6ae58a4b
 =======
 >>>>>>> 0c6b0da24e674c86b4fbc54875c26fee6ae58a4b
 <div class="container">
@@ -62,6 +65,9 @@
     </div>
 </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 0c6b0da24e674c86b4fbc54875c26fee6ae58a4b
+=======
 >>>>>>> 0c6b0da24e674c86b4fbc54875c26fee6ae58a4b
 =======
 >>>>>>> 0c6b0da24e674c86b4fbc54875c26fee6ae58a4b
