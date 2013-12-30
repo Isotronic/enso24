@@ -169,15 +169,17 @@
 								break;
 							case "contact_added":
 								form_identifier="address";
-								$(".modal-content").css({"width":"800px","margin-right":"auto","margin-left":"auto"})
+								$(".modal-content").css({"width":"750px","margin-left":"auto"})
 								$(".modal-body").css({
 									"opacity":"1",
 									"background-color":"#fff",
 									"color":"#000"
 								});
+								
 								$("div#basic").css({"display":"none"});
 								$("div#contact").css({"display":"none"});
-								$("div#address").css({"display":"block"})
+								$("div#address_form_holder").css({"display":"block"});
+								$("button#add_address").css({"display":"block"});
 								$("div#loading").css({"display":"none"});
 								break;
 							case "address_added":
@@ -244,7 +246,7 @@
 		$("div#basic").css({"display":"block"});
 		$("div#loading").css({"display":"none"});
 		$("div#contact").css({"display":"none"});
-		$("div#address").css({"display":"none"});
+		$("div#address_form_holder").css({"display":"none"});
 		
 		$("#submit").click(function(){
 			
