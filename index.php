@@ -16,14 +16,12 @@
 <body>
 <div class="container">
     <div class="masthead">
-        <h3 class="text-muted"></h3>
         <h3 class="text-muted">B&amp;S Solutions CRM</h3>
         <ul class="nav nav-justified">
             <li class="active"><a href="#">Dashboard</a></li>
             <li><a href="#">Customers</a></li>
             <li><a href="#">Email</a></li>
             <li><a href="#">Taskmanager</a></li>
-            <li><a href="#">Help</a></li>
             <li><a href="#">Admin</a></li>
         </ul>
     </div>
