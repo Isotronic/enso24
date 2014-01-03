@@ -19,7 +19,7 @@ if ($step == "basic") {
     
     $id->generateId("client");
     $client->newClient($step);
-
+    
 } elseif ($step == "contact") {
     $client->client_id = $_POST["client_id"];
     $client->phone = $_POST["phone"];
@@ -30,33 +30,32 @@ if ($step == "basic") {
     $client->contact_timing = $_POST["contact_timing"];
     
     $client->newClient($step);
-
+    
 } elseif ($step == "address") {
-    $client->client_id = $_POST["client_id"];
-    $client->street = $_POST["street"];
-    $client->house_no = $_POST["house_no"];
-    $client->postal_code = $_POST["postal_code"];
-    $client->city = $_POST["city"];
-    $client->contract_partner = $_POST["contract_partner"];
-    $client->address_type = $_POST["address_type"];
-    
-    $id->generateId("address");
-    $client->newClient($step);
-
-} elseif ($step == "meter") {
-    $client->address_id = $_POST["address_id"];
-    $client->meter_type = $_POST["meter_type"];
-    $client->meter_no = $_POST["meter_no"];
-    
-    $client->newClient($step);
-
+    for ($i=0; $i < $address_count; $i++) { 
+        $id->generateId("address");
+        $client->client_id = $_POST["client_id"];
+        $client->street = $_POST["street"];
+        $client->house_no = $_POST["house_no"];
+        $client->postal_code = $_POST["postal_code"];
+        $client->city = $_POST["city"];
+        $client->contract_partner = $_POST["contract_partner"];
+        $client->address_type = $_POST["address_type"];
+        $client->newClient($step);
+        
+        for ($i=0; $i < $meter_count; $i++) { 
+            $client->meter_type = $_POST["meter_type"];
+            $client->meter_no = $_POST["meter_no"];
+            $client->newClient("meter");
+        } 
+    }
 } elseif ($step == "bank") {
     $client->client_id = $_POST["client_id"];
     $client->account_owner = $_POST["account_owner"];
     $client->iban = $_POST["iban"];
     $client->bic = $_POST["bic"];
 	$client->newClient($step);
-
+    
 } elseif ($step == "order") {
     $client->contract_type = $_POST["contract_type"];
     $client->client_id = $_POST["client_id"];
@@ -64,7 +63,7 @@ if ($step == "basic") {
     
     $id->generateId("order");
     $client->newClient($step);
-
+    
 }
 
 
