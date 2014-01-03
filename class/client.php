@@ -131,6 +131,7 @@ class Client {
         $this->client_id = $client_id;
         //$mysqli = new mysqli("rdbms.strato.de", "U1519108", "lalilu1969", "DB1519108");
         $mysqli = new mysqli("localhost", "root", "", "db1519108");
+        
         // kundendaten laden
         if ($step == "basic") {
             if($stmt = $mysqli->prepare("SELECT * FROM client_basic_info WHERE client_id=?")) {
@@ -145,12 +146,42 @@ class Client {
         }
     }
     
+    // updating client details
+    function updateClient($step)
+    {
+        //$mysqli = new mysqli("rdbms.strato.de", "U1519108", "lalilu1969", "DB1519108");
+        $mysqli = new mysqli("localhost", "root", "", "db1519108");
+        
+        // updating basic customer details
+        if($step == "basic") {
+            if($stmt = $mysqli->prepare("UPDATE client_basic_info SET type=?, gender=?, title=?, first_name=?, last_name=? WHERE client_id=?")) {
+                $stmt->bind_param('isssss', $this->type, $this->gender, $this->title, $this->first_name, $this->last_name, $this->client_id);
+                $stmt->execute();
+                $stmt->close();
+            } else {
+                echo "Prepared Statement Error: %s\n", $mysqli->error;
+            }
+        
+        // updating the contact details    
+        } elseif($step == "contact") {
+            if($stmt = $mysqli->prepare("UPDATE client_contact SET phone=?, fax=?, mobile=?, email=?, contact_method=?, contact_timing=? WHERE client_id=?")) {
+                $stmt->bind_param('sssssss', $this->phone, $this->fax, $this->mobile, $this->email, $this->contact_method, $this->contact_method, $this->client_id);
+                $stmt->execute();
+                $stmt->close();
+            } else {
+                echo "Prepared Statement Error: %s\n", $mysqli->error;
+            }
+        
+        // updating the contact details    
+        }
+    }
     
     // create a new customer
 	function newClient($step) 
 	{
         //$mysqli = new mysqli("rdbms.strato.de", "U1519108", "lalilu1969", "DB1519108");
         $mysqli = new mysqli("localhost", "root", "", "db1519108");
+        
         // saving basic customer details
 		if($step == "basic") {
 			if($stmt = $mysqli->prepare("INSERT INTO client_basic_info (client_id, type, gender, title, first_name, last_name, birth_date) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
