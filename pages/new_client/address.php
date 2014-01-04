@@ -127,6 +127,12 @@
 		{
 			line-height:5px;
 		}
+		#add_address_div
+		{
+			padding-right:0px;
+			text-align:right;
+			padding-left:540px;
+		}
 	</style>
 	<script type="text/javascript">	
 		function addMeterForm(i,j) //the parameters i for the address number and j for the meter count
@@ -251,19 +257,13 @@
 									addMeterForm(adr_id,meter_count);*/
 									//$("#add_meter").append("<button type='button' class='btn btn-primary' id='remove_meter'>Remove Meter</button>")
 								});
-							
-							
-					});
-					
-					//adding the meter form when an address has multiple meters 
-					
-					
-					
+							});
+					//adding the meter form when an address has multiple meters 	
 		});
 	</script>
 <div id="address_form_holder">
 </div>
 
-<div id="add_address">
+<div id="add_address_div">
 <button type="button" class="btn btn-primary" id="add_address">Add Address</button>
 </div>
