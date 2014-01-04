@@ -16,6 +16,10 @@
 			  background-clip: padding-box;
 			  padding-top:10px;
 		}
+		.addr input{
+			height:40px;
+			padding-bottom:0px;
+		}
 		#addr
 		{
 			width:50%;
@@ -25,7 +29,7 @@
 		#meter_container
 		{
 			/*width:40%;*/
-			min-height:250px;
+			min-height:300px;
 			padding-left:55%;
 			padding-right:5px;
 			padding-top:5px;
@@ -138,24 +142,7 @@
 						var temp="#meter_form_holder_"+i;
 						$(temp).append(html);
 						
-						var close_meter="#close_meter_"+i+'_'+j;
-								
-									$(close_meter).click(function(){
-									
-									var first_separation=close_meter.substring(13);//,close_meter.length); // gets
-									var numbers=first_separation.split("_");
-									//alert(numbers[0]+' '+numbers[1]);
-									
-									var meter_no = "#meter_"+numbers[0]+'_'+numbers[1];
-									alert(meter_no);
-									//var meter_no = "#meter_"+i+'_'+j;
-									//alert(meter_no);
-									$(meter_no).hide();
-								
-									/*meter_count=meter_count+1;
-									addMeterForm(adr_id,meter_count);*/
-									//$("#add_meter").append("<button type='button' class='btn btn-primary' id='remove_meter'>Remove Meter</button>")
-									});
+						
 		}	
 		function addAddressForm(i)
 		{
@@ -191,7 +178,24 @@
 									addMeterForm(adr_id,meter_count);
 									//$("#add_meter").append("<button type='button' class='btn btn-primary' id='remove_meter'>Remove Meter</button>")
 								
+								var close_meter="#close_meter_"+adr_id+'_'+meter_count;
 								
+									$(close_meter).click(function(){
+									
+									var first_separation=close_meter.substring(13);//,close_meter.length); // gets
+									var numbers=first_separation.split("_");
+									//alert(numbers[0]+' '+numbers[1]);
+									
+									var meter_no = "#meter_"+numbers[0]+'_'+numbers[1];
+								//var meter_no = "#meter_"+i+'_'+j;
+									
+									//alert(meter_no);
+									$(meter_no).hide();
+								
+									/*meter_count=meter_count+1;
+									addMeterForm(adr_id,meter_count);*/
+									//$("#add_meter").append("<button type='button' class='btn btn-primary' id='remove_meter'>Remove Meter</button>")
+									});
 								
 								
 								
@@ -220,13 +224,14 @@
 									
 									$(close_meter).click(function(){
 									
-									var first_separation=close_meter.substring(13);//,close_meter.length); // gets
-									var numbers=first_separation.split("_");
-									//alert(numbers[0]+' '+numbers[1]);
-									
-									var meter_no = "#meter_"+numbers[0]+'_'+numbers[1];
-									//alert(meter_close);
-									$(meter_no).hide();
+										var first_separation=close_meter.substring(13);//,close_meter.length); // gets
+										//var numbers=first_separation.split("_");
+										//alert(numbers[0]+' '+numbers[1]);
+										
+										var meter_no = "#meter_"+first_separation;//numbers[0]+'_'+numbers[1];
+										alert(meter_no);
+										//alert(meter_close);
+										$(meter_no).hide();
 									/*meter_count=meter_count+1;
 									addMeterForm(adr_id,meter_count);*/
 									//$("#add_meter").append("<button type='button' class='btn btn-primary' id='remove_meter'>Remove Meter</button>")
@@ -258,65 +263,6 @@
 	</script>
 <div id="address_form_holder">
 </div>
-
-<!--
-<div id="address" class="addr">
-	<div id="addr">
-				Address
-				<table>
-					<tr>
-						<td><label for="street">Street </label> </td>
-						<td><input type="text" name="street" id="street" /></td>
-					</tr>
-					<tr>
-						<td><label for="house_no">House No </label></td>
-						<td><input type="text" name="house_no" id="house_no" /></td>
-					</tr>
-					<tr>
-						<td><label for="postal_code">Postal Code </label></td>
-						<td><input type="text" name="postal_code" id="postal_code" /></td>
-					</tr>
-					<tr>
-						<td><label for="city">City </label></td>	
-						<td><input type="text" name="city" id="city" /></td>
-					</tr>
-					<tr>
-						<td><label for="contract_partner">Contract Partner </label></td>
-						<td><input type="text" name="contract_partner" id="contract_partner" /></td>
-					<//tr>
-					<tr>
-						<td><label for="address_type">Address Type </label></td>
-						<td><input type="text" name="address_type" id="address_type" /></td>
-					</tr>
-				</table>
-	</div>
-	<div id="meter_container">
-		Meter Details
-		<!-- <div id="meter">
-			<div id="meter_table">
-				<table >
-				<tr>
-					<td><label for="meter_type">Meter Type </label> </td>
-					<td><input type="text" name="meter_type" id="meter_type" /></td>
-				</tr>
-				<tr>
-					<td><label for="meter_no">Meter No </label></td>
-					<td><input type="text" name="meter_no" id="meter_no" /></td>
-				</tr>
-			</table>
-			</div>
-		</div>-->
-		<!--
-		<div id="meter_form_holder">
-			<script>
-				addMeterForm(1,1);
-			</script>
-		</div>
-		<button type="button" class="btn btn-primary" id="add_meter">Add Meter</button>
-	</div>
-	
-</div>
--->
 
 <div id="add_address">
 <button type="button" class="btn btn-primary" id="add_address">Add Address</button>
