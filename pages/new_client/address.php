@@ -149,10 +149,11 @@
 				var close_button='<div id="close_address_'+i+'" class="close_address"><img id="close" src="includes/images/close.png"  alt="Remove"></div>';
 				if(i==1)
 				{
-					close_button="";	
+					close_button="";
 				}
 				var html='<div class="addr" id="address_'+i+'">'+close_button+'<div id="addr">Address '+i+'<table><tr><td><label for="street">Street </label> </td><td><input type="text" name="street" id="street" /></td></tr><tr><td><label for="house_no">House No </label></td><td><input type="text" name="house_no" id="house_no" /></td></tr><tr><td><label for="postal_code">Postal Code </label></td><td><input type="text" name="postal_code" id="postal_code" /></td></tr><tr><td><label for="city">City </label></td><td><input type="text" name="city" id="city" /></td></tr><tr><td><label for="contract_partner">Contract Partner </label></td><td><input type="text" name="contract_partner" id="contract_partner" /></td></tr><tr><td><label for="address_type">Address Type </label></td><td><input type="text" name="address_type" id="address_type" /></td></tr></table></div><div id="meter_container">Meter Details<div id="meter_form_holder_'+i+'"></div><div id="meter_add_button"><button type="button" class="btn btn-primary" id="add_meter_'+i+'">Add Meter</button></div></div></div><div id="spacer">&nbsp;</div>';
-				$("#address_form_holder").append(html);
+				$("#address_form_holder").append(html);//.slideDown("slow");
+				
 				
 		}
 		
@@ -190,7 +191,7 @@
 								//var meter_no = "#meter_"+i+'_'+j;
 									
 									//alert(meter_no);
-									$(meter_no).hide();
+									$(meter_no).slideUp("slow");
 								
 									/*meter_count=meter_count+1;
 									addMeterForm(adr_id,meter_count);*/
@@ -229,9 +230,8 @@
 										//alert(numbers[0]+' '+numbers[1]);
 										
 										var meter_no = "#meter_"+first_separation;//numbers[0]+'_'+numbers[1];
-										alert(meter_no);
 										//alert(meter_close);
-										$(meter_no).hide();
+										$(meter_no).slideUp("fast");
 									/*meter_count=meter_count+1;
 									addMeterForm(adr_id,meter_count);*/
 									//$("#add_meter").append("<button type='button' class='btn btn-primary' id='remove_meter'>Remove Meter</button>")
@@ -246,7 +246,7 @@
 							$(temp).click(function(){
 								
 									var addr = "#address_"+temp.substring(15,temp.length);
-									$(addr).hide();
+									$(addr).slideUp("slow");
 									/*meter_count=meter_count+1;
 									addMeterForm(adr_id,meter_count);*/
 									//$("#add_meter").append("<button type='button' class='btn btn-primary' id='remove_meter'>Remove Meter</button>")
