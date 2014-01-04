@@ -197,7 +197,7 @@
 								//var meter_no = "#meter_"+i+'_'+j;
 									
 									//alert(meter_no);
-									$(meter_no).slideUp("slow");
+									$(meter_no).slideUp("slow",function(){$(this).remove()});
 								
 									/*meter_count=meter_count+1;
 									addMeterForm(adr_id,meter_count);*/
@@ -237,7 +237,7 @@
 										
 										var meter_no = "#meter_"+first_separation;//numbers[0]+'_'+numbers[1];
 										//alert(meter_close);
-										$(meter_no).slideUp("fast");
+										$(meter_no).slideUp("fast",function(){$(this).remove()});
 									/*meter_count=meter_count+1;
 									addMeterForm(adr_id,meter_count);*/
 									//$("#add_meter").append("<button type='button' class='btn btn-primary' id='remove_meter'>Remove Meter</button>")
@@ -252,7 +252,7 @@
 							$(temp).click(function(){
 								
 									var addr = "#address_"+temp.substring(15,temp.length);
-									$(addr).slideUp("slow");
+									$(addr).slideUp("slow",function(){$(this).remove()});
 									/*meter_count=meter_count+1;
 									addMeterForm(adr_id,meter_count);*/
 									//$("#add_meter").append("<button type='button' class='btn btn-primary' id='remove_meter'>Remove Meter</button>")
