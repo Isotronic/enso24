@@ -1,7 +1,7 @@
 <?php 
 // adding a new customer
-require_once '../class/client.php';
-require_once '../class/id.php';
+require_once '../includes/php/client.php';
+require_once '../includes/php/id.php';
 
 $client = new client();
 $id = new Id();
@@ -32,7 +32,7 @@ if ($step == "basic") {
     $client->newClient($step);
     
 } elseif ($step == "address") {
-    for ($i=0; $i < $address_count; $i++) { 
+    for ($i=0; $i <= $address_count; $i++) { 
         $id->generateId("address");
         $client->client_id = $_POST["client_id"];
         $client->street = $_POST["street"];
@@ -43,7 +43,7 @@ if ($step == "basic") {
         $client->address_type = $_POST["address_type"];
         $client->newClient($step);
         
-        for ($i=0; $i < $meter_count; $i++) { 
+        for ($i=0; $i <= $meter_count; $i++) { 
             $client->meter_type = $_POST["meter_type"];
             $client->meter_no = $_POST["meter_no"];
             $client->newClient("meter");
