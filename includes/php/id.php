@@ -17,7 +17,7 @@ class Id extends Client {
             do {
                 if($stmt = $mysqli->prepare("")) {
                     $this->random=rand(00000000, 99999999);
-                    $stmt->bind_param('s', $this->random);
+                    $stmt->bind_param('i', $this->random);
                     $stmt->execute();
                     $stmt->store_result();
                     $this->check=$stmt->num_rows;
@@ -33,7 +33,7 @@ class Id extends Client {
             do {
                 if($stmt = $mysqli->prepare("")) {
                     $this->random=rand(0000000000, 9999999999);
-                    $stmt->bind_param('s', $this->random);
+                    $stmt->bind_param('i', $this->random);
                     $stmt->execute();
                     $stmt->store_result();
                     $this->check=$stmt->num_rows;
@@ -47,7 +47,7 @@ class Id extends Client {
         // generate client_id    
         } elseif ($step == "client") {
             do {
-                if($stmt = $mysqli->prepare("")) {
+                if($stmt = $mysqli->prepare("SELECT client_id FROM client_basic_info WHERE client_id=?")) {
                     $this->random=$this->vp_id.rand(0000, 9999);
                     $stmt->bind_param('s', $this->random);
                     $stmt->execute();

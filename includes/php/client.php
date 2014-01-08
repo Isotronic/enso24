@@ -26,11 +26,12 @@ class Client {
     // client address info (adresse)
     public $address_id;                         // vertragskontonummer
     public $street;                             // straße
-    public $house_no;                       // hausnummer
+    public $house_no;                           // hausnummer
     public $postal_code;                        // postleitzahl
     public $city;                               // stadt
     public $contract_partner;                   // vertragspartner
     public $address_type;                       // primäre adresse
+    public $address_data;                       // all data for one address (array)
     
     // client bank info (bankdaten)
     public $account_owner;                      // kontoinhaber
@@ -120,11 +121,12 @@ class Client {
     public $provider_email;                     // anbieter email
     
     // - (vertriebspartner)
-    public $vp_id;                               // vertriebspartner nummer
+    public $vp_id;                              // vertriebspartner nummer
     // gas umrechnungsfaktor und brennwert??
     // firmendaten??
 
-
+    private $check1;                             // internal checking variable
+    private $check2;                             // internal checking variable
     // load customer related data
     function getClientData($step, $client_id)
     {
@@ -132,12 +134,74 @@ class Client {
         //$mysqli = new mysqli("rdbms.strato.de", "U1519108", "lalilu1969", "DB1519108");
         $mysqli = new mysqli("localhost", "root", "", "db1519108");
         
-        // kundendaten laden
+        // basic
         if ($step == "basic") {
             if($stmt = $mysqli->prepare("SELECT * FROM client_basic_info WHERE client_id=?")) {
                 $stmt->bind_param('s', $this->client_id);
                 $stmt->execute();
                 $stmt->bind_result($this->client_id, $this->type, $this->start_date, $this->gender, $this->title, $this->first_name, $this->last_name, $this->birth_date);
+                $stmt->fetch();
+                $stmt->close();
+            } else {
+                echo "Prepared Statement Error: %s\n", $mysqli->error;
+            }
+        // contact
+        } elseif ($step == "contact") {
+            if($stmt = $mysqli->prepare("SELECT * FROM client_contact WHERE client_id=?")) {
+                $stmt->bind_param('s', $this->client_id);
+                $stmt->execute();
+                $stmt->bind_result($this->client_id, $this->phone, $this->fax, $this->mobile, $this->email, $this->contact_method, $this->contact_timing);
+                $stmt->fetch();
+                $stmt->close();
+            } else {
+                echo "Prepared Statement Error: %s\n", $mysqli->error;
+            }
+        // address
+        } elseif ($step == "address_meter") {
+            $i = 0;
+            $n = 0;
+            $this->address_data = array();
+            do {
+                $i++;
+                if($stmt = $mysqli->prepare("SELECT * FROM client_address WHERE client_id=?")) {
+                    $stmt->bind_param('s', $this->client_id);
+                    $stmt->execute();
+                    $this->check1=$stmt->num_rows;
+                    $stmt->bind_result($this->address_id, $this->client_id, $this->street, $this->house_no, $this->postal_code, $this->city, $this->contract_partner, $this->address_type);
+                    $stmt->fetch();
+                    $stmt->close();
+                    $this->address_data[$i] = array($this->address_id, $this->client_id, $this->street, $this->house_no, $this->postal_code, $this->city, $this->contract_partner, $this->address_type);
+                    do {
+                        if($stmt = $mysqli->prepare("SELECT * FROM client_meter WHERE address_id=?")) {
+                            $stmt->bind_param('s', $this->address_id);
+                            $stmt->execute();
+                            $this->check2=$stmt->num_rows;
+                            $stmt->bind_result($this->meter_id, $this->meter_type, $this->meter_no, $this->address_id);
+                            $stmt->fetch();
+                            $stmt->close();
+                        } else { echo "Prepared Statement Error: %s\n", $mysqli->error; }
+                    } while ($this->check2 != $n);
+                } else {
+                    echo "Prepared Statement Error: %s\n", $mysqli->error;
+                }
+            } while ($this->check1 != $i);
+        // bank
+        } elseif ($step == "bank") {
+            if($stmt = $mysqli->prepare("SELECT * FROM client_bank WHERE client_id=?")) {
+                $stmt->bind_param('s', $this->client_id);
+                $stmt->execute();
+                $stmt->bind_result($this->client_id, $this->account_owner, $this->iban, $this->bic);
+                $stmt->fetch();
+                $stmt->close();
+            } else {
+                echo "Prepared Statement Error: %s\n", $mysqli->error;
+            }
+        // order
+        } elseif ($step == "order") {
+            if($stmt = $mysqli->prepare("SELECT * FROM client_order WHERE client_id=?")) {
+                $stmt->bind_param('s', $this->client_id);
+                $stmt->execute();
+                $stmt->bind_result($this->order_id, $this->contract_type, $this->client_id, $this->sending_method);
                 $stmt->fetch();
                 $stmt->close();
             } else {
