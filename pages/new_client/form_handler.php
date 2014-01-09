@@ -15,7 +15,9 @@ else if($_POST['step']=="contact")
 }
 else
 	{
-		echo "address_added";
+		$address=$_POST["address"];
+		
+		echo $address[3][1][1];
 	}
 
 ?>

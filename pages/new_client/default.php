@@ -72,7 +72,7 @@
 	}
 	
 	
-	function getFormData(form_identifier) //this function collects the information from the form to be sent to the php file
+	function getFormData(form_identifier,address_count) //this function collects the information from the form to be sent to the php file
 	{
 		var data="";
 		if(form_identifier=="basic")
@@ -104,6 +104,36 @@
 		if(form_identifier=="address")
 		{
 			data="";
+			var address=[["abc","def","fgh","ijk"],["1","2","3","4","5"],[11,12,13,14,15],['a','b','c','d','e']];
+			
+			
+			var i=1
+			var count=0;
+			for(i=1; i<10; i++)
+			{
+				
+				if($("#address_"+i).length)
+				{
+					var meter_count=0;
+					for(j=0; j<10; j++)
+					{
+						if($("#meter_"+i+"_"+j).length)
+						{
+							meter_count=meter_count+1;
+						}
+					}
+					alert(meter_count);
+					count=count+1;
+				}
+			}
+			for(i=0; i<address.length; i++){
+				for(j=0; j<5; j++){
+					data=data+'address['+i+']['+j+']='+address[i][j]+'&';
+				}
+				
+			}
+			alert(data);
+			/*
 			var client_id = $("#client_id").val();
 		    var street = $("#street").val();
 		    var house_no = $("#house_no").val();
@@ -114,6 +144,10 @@
 		    var step="address";
 		    data="street="+street+"&house_no="+house_no+"&postal_code="+postal_code+"&city="+city+"&contract_partner="+contract_partner+"&address_type="+address_type+"&step="+step;
 		    return data;
+		    queryString = queryString + 'userdetails[]='+userdetails[i]+'&';
+		    * */
+		   return data;
+		  	
 		}
 		
 	}
@@ -195,33 +229,16 @@
 								$("div#loading").css({"display":"none"});
 								*/
 								break;
+							 default:
+							 	$(".modal-body").css({
+									"opacity":"1",
+									"background-color":"#fff",
+									"color":"#000"
+								});
+							 	$("div#loading").css({"display":"none"});
+								
 							}
-							
 						
-					/*
-=======
->>>>>>> 66ad85cdf2e70465cd557c4afb452b85732d82da
-						if(stat=="basic_added")
-						{
-							$(".modal-body").css({
-								"opacity":"1",
-								"background-color":"#fff",
-								"color":"#000"
-							});
-<<<<<<< HEAD
-							
-=======
->>>>>>> 66ad85cdf2e70465cd557c4afb452b85732d82da
-							$("div#basic").css({"display":"none"});
-							$("div#contact").css({"display":"block"});
-							$("div#loading").css({"display":"none"})
-							//$("div#address").css({"display":"none"})
-						}
-<<<<<<< HEAD
-						else if(stat=="contact_added")
-						{
-							
-						}*/
 						xmlhttp.responseText="";
 				}
 			}
