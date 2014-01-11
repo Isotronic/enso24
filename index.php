@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="includes/css/style.css" media="screen" />
 <script type="text/javascript" src="includes/js/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="includes/js/bootstrap.js"></script>
+<script type="text/javascript" src="includes/js/new_client.js"></script> 
 <title>crm-enso24</title>
 </head>
 <body>
