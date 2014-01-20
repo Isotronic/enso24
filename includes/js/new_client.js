@@ -169,11 +169,12 @@ function getFormData(form_identifier, address_count) //this function collects th
 		data = "";
 		var type = $("#type").val();
 		var title = $("#title").val();
+		var vp_id = $("#vp_id").val();
 		var first_name = $("#first_name").val();
 		var last_name = $("#last_name").val();
 		var birth_date = $("#birth_date").val();
 		var step = "basic";
-		data = "type=" + type + "&title=" + title + "&first_name=" + first_name + "$last_name=" + last_name + "&birth_date=" + birth_date + "&step=" + step;
+		data = "type=" + type + "&title=" + title + "&vp_id=" + vp_id + "&first_name=" + first_name + "$last_name=" + last_name + "&birth_date=" + birth_date + "&step=" + step;
 		return data;
 	}
 	if (form_identifier == "contact") {

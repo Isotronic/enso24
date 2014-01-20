@@ -2,7 +2,7 @@
 Basic Information
 	<form method="post" name="basic" id="basic" action="" class="">
 		<label for="vp_id">VP ID </label> 
-			<input type="text" name="vp_id" id="type" placeholder="VP ID" /><span id="type_error" style="display:none"> *Required field</span><br />
+			<input type="text" name="vp_id" id="vp_id" placeholder="VP ID" /><span id="type_error" style="display:none"> *Required field</span><br />
 		<label for="type">Client Type </label> 
 			<input type="text" name="type" id="type" placeholder="Client Type" /><span id="type_error" style="display:none"> *Required field</span><br />
 		<label for="title">Title</label>
