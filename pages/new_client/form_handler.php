@@ -1,31 +1,7 @@
-<?php
-$i=0;
-
-while($i<10000000)
-{
-	$i++;
-}
-if($_POST['step']=="basic")
-{
-	echo "basic_added";
-}
-else if($_POST['step']=="contact")
-{
-	echo "contact_added";
-}
-else
-	{
-		$address=$_POST["address"];
-		
-		echo $address[3][1][1];
-	}
-
-?>
-
 <?php 
 // adding a new customer
-require_once '../includes/php/client.php';
-require_once '../includes/php/id.php';
+require_once '../../includes/php/client.php';
+require_once '../../includes/php/id.php';
 
 $client = new client();
 $id = new Id();
@@ -43,6 +19,7 @@ if ($step == "basic") {
     
     $id->generateId("client");
     $client->newClient($step);
+	echo "basic_added";
     
 } elseif ($step == "contact") {
     $client->client_id = $_POST["client_id"];
@@ -54,6 +31,7 @@ if ($step == "basic") {
     $client->contact_timing = $_POST["contact_timing"];
     
     $client->newClient($step);
+	echo "contact_added";
     
 } elseif ($step == "address") {
     for ($i=0; $i <= $address_count; $i++) { 
@@ -73,6 +51,7 @@ if ($step == "basic") {
             $client->newClient("meter");
         } 
     }
+	echo "address_added";
 } elseif ($step == "bank") {
     $client->client_id = $_POST["client_id"];
     $client->account_owner = $_POST["account_owner"];
