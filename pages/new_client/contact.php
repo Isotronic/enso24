@@ -20,5 +20,6 @@ Contact Information
 		<label for="contact_timing">Contact Timing </label> 
 			<input type="text" name="contact_timing" id="contact_timing" /><br />
 			<input type="hidden" name="step" id="step" value="contact" />
+			<input type="hidden" name="client_id" id="client_id" value="" />
 	</form>
 </div>

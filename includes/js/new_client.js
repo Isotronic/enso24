@@ -188,11 +188,14 @@ function getFormData(form_identifier, address_count) //this function collects th
 		var contact_method = $("#contact_method").val();
 		var contact_timing = $("#contact_timing").val();
 		var step = "contact";
-		data = "phone=" + phone + "&fax=" + fax + "&mobile=" + mobile + "&email=" + email + "&contact_method=" + contact_method + "&contact_timing=" + contact_timing + "&step=" + step;
+		data = "client_id=" + client_id + "&phone=" + phone + "&fax=" + fax + "&mobile=" + mobile + "&email=" + email + "&contact_method=" + contact_method + "&contact_timing=" + contact_timing + "&step=" + step;
 		return data;
 	}
 	if (form_identifier == "address") {
+		var client_id = $("#client_id").val();
+		alert(client_id);
 		data = "";
+		data = data+"client_id="+client_id+"&";
 		//var address=[["abc","def","fgh","ijk"],["1","2","3","4","5"],[11,12,13,14,15],['a',['b','tshewang'],'c','d','e']];
 		var address = new Array();
 		var i = 1;
@@ -263,8 +266,10 @@ function sendData(str) {
 		};
 		if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 			document.getElementById("123").innerHTML = xmlhttp.responseText;
-			var stat = xmlhttp.responseText;
-			switch (stat) {
+			var responsemessage = xmlhttp.responseText;
+			var stat=responsemessage.split(".");
+			alert(stat[0]);
+			switch (stat[1]) {
 			case "basic_added":
 				/*$("#myModal").modal('hide');*/
 				$(".modal-dialog").css({
@@ -283,6 +288,9 @@ function sendData(str) {
 				$("div#contact").css({
 					"display": "block"
 				});
+				
+				$("#client_id").val(stat[0]);
+				
 				$("div#loading").css({
 					"display": "none"
 				});
@@ -308,9 +316,13 @@ function sendData(str) {
 				$("div#address_form_holder").css({
 					"display": "block"
 				});
+				
 				$("button#add_address").css({
 					"display": "block"
 				});
+				
+				$("#client_id").val(stat[0]);
+				
 				$("div#loading").css({
 					"display": "none"
 				});
