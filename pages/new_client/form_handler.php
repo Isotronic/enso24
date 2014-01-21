@@ -1,10 +1,8 @@
 <?php 
 // adding a new customer
 require_once '../../includes/php/client.php';
-require_once '../../includes/php/id.php';
 
 $client = new client();
-$id = new Id();
 
 $step = $_POST["step"];
 
@@ -17,9 +15,22 @@ if ($step == "basic") {
     $client->gender = $_POST["gender"];
     $client->birth_date = $_POST["birth_date"];
     
-    $id->generateId($step);
-    //$client->newClient($step);
-	echo $client->client_id;
+    $mysqli = new mysqli("localhost", "root", "", "db1519108");
+    do {
+        if($stmt = $mysqli->prepare("SELECT client_id FROM client_basic_info WHERE client_id=?")) {
+            $client->client_id=$client->vp_id.rand(0000, 9999);
+            $stmt->bind_param('s', $client->client_id);
+            $stmt->execute();
+            $stmt->store_result();
+            $check=$stmt->num_rows;
+            $stmt->close();
+        } else {
+            echo "Prepared Statement Error: %s\n", $mysqli->error;
+        }
+    } while ($check > 0);
+    
+    $client->newClient($step);
+	echo "basic_added";
     
 } elseif ($step == "contact") {
     $client->client_id = $_POST["client_id"];
@@ -35,7 +46,19 @@ if ($step == "basic") {
     
 } elseif ($step == "address") {
     for ($i=0; $i <= $address_count; $i++) { 
-        $id->generateId("address");
+        do {
+            if($stmt = $mysqli->prepare("")) {
+                $this->address_id=rand(00000000, 99999999);
+                $stmt->bind_param('i', $this->address_id);
+                $stmt->execute();
+                $stmt->store_result();
+                $this->check=$stmt->num_rows;
+                $stmt->close();
+            } else {
+                echo "Prepared Statement Error: %s\n", $mysqli->error;
+            }
+        } while ($this->check > 0);
+        
         $client->client_id = $_POST["client_id"];
         $client->street = $_POST["street"];
         $client->house_no = $_POST["house_no"];
@@ -64,7 +87,19 @@ if ($step == "basic") {
     $client->client_id = $_POST["client_id"];
     $client->sending_method = $_POST["sending_method"];
     
-    $id->generateId("order");
+    do {
+        if($stmt = $mysqli->prepare("")) {
+            $this->order_id=rand(0000000000, 9999999999);
+            $stmt->bind_param('i', $this->order_id);
+            $stmt->execute();
+            $stmt->store_result();
+            $this->check=$stmt->num_rows;
+            $stmt->close();
+        } else {
+            echo "Prepared Statement Error: %s\n", $mysqli->error;
+        }
+    } while ($this->check > 0);
+    
     $client->newClient($step);
     
 }
