@@ -10,16 +10,16 @@ $step = $_POST["step"];
 
 if ($step == "basic") {
     $client->type = $_POST["type"];
-    $client->gender = $_POST["gender"];
     $client->vp_id = $_POST["vp_id"];
     $client->title = $_POST["title"];
     $client->first_name = $_POST["first_name"];
     $client->last_name = $_POST["last_name"];
+    $client->gender = $_POST["gender"];
     $client->birth_date = $_POST["birth_date"];
     
-    $id->generateId("client");
-    $client->newClient($step);
-	echo "basic_added";
+    $id->generateId($step);
+    //$client->newClient($step);
+	echo $client->client_id;
     
 } elseif ($step == "contact") {
     $client->client_id = $_POST["client_id"];

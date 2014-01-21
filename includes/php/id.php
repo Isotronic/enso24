@@ -45,7 +45,7 @@ class Id extends Client {
             $this->order_id=$this->random;
         
         // generate client_id    
-        } elseif ($step == "client") {
+        } elseif ($step == "basic") {
             do {
                 if($stmt = $mysqli->prepare("SELECT client_id FROM client_basic_info WHERE client_id=?")) {
                     $this->random=$this->vp_id.rand(0000, 9999);

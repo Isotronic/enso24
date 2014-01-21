@@ -2,7 +2,7 @@
 Basic Information
 	<form method="post" name="basic" id="basic" action="" class="">
 		<label for="vp_id">VP ID </label> 
-			<input type="text" name="vp_id" id="vp_id" placeholder="VP ID" /><span id="type_error" style="display:none"> *Required field</span><br />
+			<input type="text" name="vp_id" id="vp_id" placeholder="VP ID" /><span id="vp_id_error" style="display:none"> *Required field</span><br />
 		<label for="type">Client Type </label> 
 			<input type="text" name="type" id="type" placeholder="Client Type" /><span id="type_error" style="display:none"> *Required field</span><br />
 		<label for="title">Title</label>
@@ -12,7 +12,7 @@ Basic Information
 		<label for="last_name">Last Name </label>
 			<input type="text" name="last_name" id="last_name" placeholder="Last Name" /><span id="last_name_error" style="display:none"> *Required field</span><br />
 			<label for="gender">Gender </label>
-			<select id="gender">
+			<select id="gender" name="gender">
 				<option value=0>Select Gender</option>
 				<option>Male</option>
 				<option>Female</option>
