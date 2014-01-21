@@ -30,7 +30,7 @@ if ($step == "basic") {
     } while ($check > 0);
     
     $client->newClient($step);
-	echo "basic_added";
+	echo $client->client_id."basic_added";
     
 } elseif ($step == "contact") {
     $client->client_id = $_POST["client_id"];
@@ -42,7 +42,7 @@ if ($step == "basic") {
     $client->contact_timing = $_POST["contact_timing"];
     
     $client->newClient($step);
-	echo "contact_added";
+	echo $client->client_id."contact_added";
     
 } elseif ($step == "address") {
     for ($i=0; $i <= $address_count; $i++) { 
@@ -74,7 +74,7 @@ if ($step == "basic") {
             $client->newClient("meter");
         } 
     }
-	echo "address_added";
+	echo $client->client_id."address_added";
 } elseif ($step == "bank") {
     $client->client_id = $_POST["client_id"];
     $client->account_owner = $_POST["account_owner"];
@@ -101,7 +101,6 @@ if ($step == "basic") {
     } while ($this->check > 0);
     
     $client->newClient($step);
-    
 }
 
 
