@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ * All prices netto. Config var for VAT.
  */
 class Client {
 	
@@ -60,7 +60,7 @@ class Client {
     public $amount_per_payment;                 // abschlagssumme
     public $base_unit_price;                    // preis pro kwh (et/ht)
     public $secondary_unit_price;               // preis pro kwh (nt)
-    public $high_power_kw_price;                // leistungspreis pro kw
+    public $high_power_kw_price;                // leistungspreis pro kw (gewerbe)
     public $monthly_base_price;                 // grundgebühr
     
     // client order (kontraktinfo)
